@@ -13,6 +13,7 @@ class stack:
 
     def push(self, data):
         new_node = Node(data)
+        self.length += 1
         if self.is_empty():
             self.head = new_node
         else:
@@ -21,15 +22,24 @@ class stack:
 
             
     def pop(self):
+        if self.is_empty():
+            raise IndexError("stack is empty")
+        self.length -= 1
         popped_item = self.head.data
         self.head = self.head.next
         return popped_item
 
     def peek(self):
-       return self.head.data
+        if self.is_empty():
+            raise IndexError("stack is empty")
+        return self.head.data
+
+    def stackLength(self):
+        return self.length
 
 s = stack()
 s.push(1)
 s.push(23444)
+s.push(4566)
 print(s.pop())
-print(s.pop())
+print(s.stackLength())
