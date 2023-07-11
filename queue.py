@@ -40,6 +40,8 @@ class queue:
 q = queue()
 
 q.enqueue(1)
+q.enqueue(68)
+q.dequeue()
 print(q.peek())
 
 
